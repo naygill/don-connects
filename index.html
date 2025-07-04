@@ -27,21 +27,32 @@
         .glow-effect-emerald {
             box-shadow: 0 0 20px rgba(52, 211, 153, 0.4), 0 0 35px rgba(52, 211, 153, 0.2);
         }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300 antialiased">
 
     <!-- Header -->
     <header class="fixed w-full bg-gray-900 bg-opacity-80 backdrop-blur-lg z-50 border-b border-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">
-                Don<span class="text-emerald-400">Connects</span>
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+               https://i.imgur.com/CTi96da.jpeg
+                <!-- Use your Imgur link for a cropped, circular version of your mascot's face -->
+                <img src="https://placehold.co/40x40/1F2937/34D399?text=DC" alt="Don Connects Mascot Logo" class="w-10 h-10 rounded-full border-2 border-emerald-500">
+                <span class="text-2xl font-bold text-white">
+                    Don<span class="text-emerald-400">Connects</span>
+                </span>
             </a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#how-it-works" class="hover:text-emerald-400 transition duration-300">How It Works</a>
                 <a href="#for-helpers" class="hover:text-emerald-400 transition duration-300">For Helpers</a>
                 <a href="#for-requesters" class="hover:text-emerald-400 transition duration-300">For Requesters</a>
-                <a href="#trust" class="hover:text-emerald-400 transition duration-300">Trust & Safety</a>
+                <a href="#faq" class="hover:text-emerald-400 transition duration-300">FAQ</a>
             </nav>
             <a href="#notify" class="hidden md:block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105">
                 Get Notified
@@ -54,7 +65,7 @@
             <a href="#how-it-works" class="block py-2 text-center hover:bg-gray-800 rounded">How It Works</a>
             <a href="#for-helpers" class="block py-2 text-center hover:bg-gray-800 rounded">For Helpers</a>
             <a href="#for-requesters" class="block py-2 text-center hover:bg-gray-800 rounded">For Requesters</a>
-            <a href="#trust" class="block py-2 text-center hover:bg-gray-800 rounded">Trust & Safety</a>
+            <a href="#faq" class="block py-2 text-center hover:bg-gray-800 rounded">FAQ</a>
             <a href="#notify" class="block mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-5 rounded-lg text-center">Get Notified</a>
         </div>
     </header>
@@ -89,23 +100,18 @@
                     <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Connecting Helpers and Requesters in just a few easy steps.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-center relative">
-                    <!-- Connecting Lines -->
-                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-700 -translate-y-1/2"></div>
+                     <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-700 -translate-y-1/2"></div>
                     <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 -translate-y-1/2 opacity-50"></div>
-                    
-                    <!-- Step 1 -->
                     <div class="relative z-10 bg-gray-800 p-8 rounded-xl border border-gray-700">
                         <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-emerald-500/10 text-emerald-400 rounded-full border-2 border-emerald-500 font-bold text-2xl">1</div>
                         <h3 class="text-xl font-bold text-white mb-2">Sign Up & Verify</h3>
                         <p class="text-gray-400">Create your profile and complete our secure identity verification to build a foundation of trust.</p>
                     </div>
-                    <!-- Step 2 -->
                     <div class="relative z-10 bg-gray-800 p-8 rounded-xl border border-gray-700">
                         <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-emerald-500/10 text-emerald-400 rounded-full border-2 border-emerald-500 font-bold text-2xl">2</div>
                         <h3 class="text-xl font-bold text-white mb-2">Post or Find Gigs</h3>
                         <p class="text-gray-400">Requesters post jobs they need done. Helpers find opportunities that match their skills.</p>
                     </div>
-                    <!-- Step 3 -->
                     <div class="relative z-10 bg-gray-800 p-8 rounded-xl border border-gray-700">
                         <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-emerald-500/10 text-emerald-400 rounded-full border-2 border-emerald-500 font-bold text-2xl">3</div>
                         <h3 class="text-xl font-bold text-white mb-2">Pay & Get Paid</h3>
@@ -115,97 +121,56 @@
             </div>
         </section>
 
-        <!-- For Helpers Section -->
-        <section id="for-helpers" class="py-20">
+        <!-- About Us Section with Narrator -->
+        <section id="about" class="py-20">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">For Helpers: Your Gateway to Growth</h2>
-                        <p class="text-gray-400 mb-8">Whether you're a skilled professional or looking for casual work, Don Connects empowers you to earn on your own terms.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div><span class="font-semibold text-white">Start for Free:</span> Only pay a small subscription fee when you actually start earning. No upfront costs.</div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div><span class="font-semibold text-white">Build Your Reputation:</span> Get verified reviews for every job and build a track record that unlocks more opportunities.</div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div><span class="font-semibold text-white">Fair & Timely Pay:</span> No more chasing payments. Funds are secured and paid directly to your Don Wallet upon job completion.</div>
-                            </li>
-                        </ul>
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2">
+                        <!-- *** REPLACE THIS MASCOT LINK *** -->
+                        <!-- Use your Imgur link for the full mascot image -->
+                        <img src="https://placehold.co/400x500/111827/FBBF24?text=Don+Connects+Mascot" alt="Don Connects Mascot" class="rounded-xl shadow-2xl mx-auto">
                     </div>
-                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                        <img src="https://placehold.co/600x400/1F2937/34D399?text=Image+of+a+Helper" alt="A skilled helper working" class="rounded-lg shadow-xl">
+                    <div class="md:col-span-3 text-center md:text-left">
+                         <div class="flex items-center justify-center md:justify-start space-x-4 mb-4">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white">Our Mission</h2>
+                            <!-- NARRATOR BUTTON -->
+                            <button id="play-mission-button" class="bg-emerald-500/20 text-emerald-400 rounded-full p-3 hover:bg-emerald-500/40 transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132A5.992 5.992 0 0110 10c2.034 0 3.835.983 4.982 2.536l1.414-1.414A7.993 7.993 0 0010 8a7.993 7.993 0 00-6.416 3.118l1.414 1.414zM10 4a6 6 0 016 6v.03A6.035 6.035 0 0110 16a6.035 6.035 0 01-6-5.97V10a6 6 0 016-6z"></path></svg>
+                            </button>
+                         </div>
+                         <p id="mission-text" class="text-gray-400 max-w-3xl">
+                            Don Connects was born from a simple idea: to unlock the vast potential of the African workforce. We saw a disconnect between talented, hardworking individuals seeking opportunities and the people and businesses who needed their skills. Our mission is to build the bridge. We are more than just an app; we are a community built on trust, a platform for growth, and a new way for Namibians and Africans to achieve economic empowerment.
+                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- For Requesters Section -->
-        <section id="for-requesters" class="py-20 bg-gray-900/50">
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-900/50">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 order-last md:order-first">
-                        <img src="https://placehold.co/600x400/1F2937/3B82F6?text=Image+of+a+Requester" alt="A happy customer" class="rounded-lg shadow-xl">
-                    </div>
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">For Requesters: Find Trusted Help, Fast</h2>
-                        <p class="text-gray-400 mb-8">From household chores to specialized projects, connect with verified and reliable individuals in your community to get the job done.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div><span class="font-semibold text-white">Access to Verified Talent:</span> Every Helper undergoes identity verification, so you can hire with confidence.</div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div><span class="font-semibold text-white">Simple & Transparent Pricing:</span> Agree on a price upfront. Pay a small, fixed job fee. No surprises.</div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div><span class="font-semibold text-white">Secure Escrow Payments:</span> Your payment is held safely and only released when you confirm the job is completed to your satisfaction.</div>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
                 </div>
-            </div>
-        </section>
-
-        <!-- Trust & Safety Section -->
-        <section id="trust" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Our "Gold Standard" of Trust & Safety</h2>
-                <p class="text-gray-400 mt-2 max-w-3xl mx-auto">Your security is our top priority. We've built our platform on a foundation of trust to ensure a safe experience for everyone.</p>
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
-                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Identity Verification (KYC)</h3>
-                        <p class="text-gray-400">All users must verify their identity with official documents, ensuring everyone is who they say they are.</p>
-                    </div>
-                    <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
-                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Secure Escrow System</h3>
-                        <p class="text-gray-400">Payments are held securely by a licensed payment provider and only released upon job completion.</p>
-                    </div>
-                    <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
-                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Two-Way Ratings & Reviews</h3>
-                        <p class="text-gray-400">After each job, both parties rate their experience, promoting accountability and quality service.</p>
-                    </div>
+                <div class="max-w-3xl mx-auto space-y-4" x-data="{ open: null }">
+                    <div class="bg-gray-800 rounded-lg"><button @click="open = open === 1 ? null : 1" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">How much does it cost for Helpers?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 1" x-cloak class="px-6 pb-6 text-gray-400">You can sign up and browse for jobs completely free. A small monthly subscription of N$100 only becomes active once you accept your first paid gig. This way, you only pay when you're earning.</div></div>
+                    <div class="bg-gray-800 rounded-lg"><button @click="open = open === 2 ? null : 2" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">How do payments work? Is it safe?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 2" x-cloak class="px-6 pb-6 text-gray-400">Extremely safe. When a Requester pays for a job, the money is held securely in an escrow account by our licensed payment partner. Once the job is marked as complete, the payment (minus our 10% platform commission) is automatically released to the Helper's Don Wallet. This protects both parties.</div></div>
+                    <div class="bg-gray-800 rounded-lg"><button @click="open = open === 3 ? null : 3" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">What if I don't have formal certificates for my skills?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 3" x-cloak class="px-6 pb-6 text-gray-400">No problem! While we verify formal certificates for trades like electricians or mechanics, we also have a system for you to detail your practical experience and skills for jobs like cleaning, gardening, driving, and more. We believe real-world experience is just as valuable.</div></div>
+                    <div class="bg-gray-800 rounded-lg"><button @click="open = open === 4 ? null : 4" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">What happens if there's a problem with a job?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 4" x-cloak class="px-6 pb-6 text-gray-400">We have a structured dispute resolution process. You can file a complaint within the app, which will be reviewed by our team. We aim to mediate fairly and, if necessary, can escalate the issue. Our rating system also helps ensure everyone acts responsibly.</div></div>
                 </div>
             </div>
         </section>
 
         <!-- Pre-launch Notification Section -->
-        <section id="notify" class="py-20 bg-gray-800/50">
+        <section id="notify" class="py-20">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold text-white mb-4">Be the First to Know!</h2>
                 <p class="text-gray-400 max-w-2xl mx-auto mb-8">Our app is coming soon. Sign up to get exclusive early access, launch updates, and be part of the Don Connects founding community.</p>
                 <form class="max-w-xl mx-auto">
                     <div class="flex flex-col sm:flex-row gap-4">
                         <input type="email" placeholder="Enter your email address" class="w-full px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none" required>
-                        <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105 glow-effect-emerald">
-                            Notify Me
-                        </button>
+                        <select class="px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none"><option>I am a...</option><option value="helper">Helper (I want to work)</option><option value="requester">Requester (I need help)</option><option value="both">Both</option></select>
+                        <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105 glow-effect-emerald flex-shrink-0">Notify Me</button>
                     </div>
                 </form>
             </div>
@@ -216,24 +181,50 @@
     <footer class="bg-gray-900 border-t border-gray-800">
         <div class="container mx-auto px-6 py-8">
             <div class="text-center">
-                <a href="#" class="text-xl font-bold text-white">Don<span class="text-emerald-400">Connects</span></a>
-                <div class="flex justify-center space-x-6 mt-4">
-                    <a href="#" class="text-gray-400 hover:text-white">About Us</a>
-                    <a href="#" class="text-gray-400 hover:text-white">Careers</a>
-                    <a href="#" class="text-gray-400 hover:text-white">Press</a>
+                <a href="#" class="flex items-center justify-center space-x-3">
+                  https://i.imgur.com/CTi96da.jpeg
+                    <img src="https://placehold.co/32x32/1F2937/34D399?text=DC" alt="Don Connects Mascot Logo" class="w-8 h-8 rounded-full">
+                    <span class="text-xl font-bold text-white">Don<span class="text-emerald-400">Connects</span></span>
+                </a>
+                <div class="flex justify-center space-x-6 mt-4 text-sm">
+                    <button onclick="openModal('termsModal')" class="text-gray-400 hover:text-white">Terms of Service</button><span class="text-gray-500">|</span><button onclick="openModal('privacyModal')" class="text-gray-400 hover:text-white">Privacy Policy</button>
                 </div>
                 <p class="text-gray-500 text-sm mt-6">&copy; 2025 Don Connects. All Rights Reserved. A vision for Namibia and Africa.</p>
             </div>
         </div>
     </footer>
+    
+    <!-- Modals and other hidden elements -->
+    <div id="termsModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Terms of Service</h3><button onclick="closeModal('termsModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Welcome to Don Connects. These terms outline the rules for using our platform. By using our services, you agree to these terms.</p><h4 class="font-bold text-white mt-4">1. The Platform</h4><p>Don Connects is a platform that connects users seeking to provide services ("Helpers") with users seeking to obtain services ("Requesters"). We are not an employer but a facilitator of these connections.</p><h4 class="font-bold text-white mt-4">2. User Accounts & Verification</h4><p>All users must register and complete our Know Your Customer (KYC) verification process. You agree to provide accurate information and are responsible for your account's security.</p><h4 class="font-bold text-white mt-4">3. Payments</h4><p>Requesters pay the agreed job amount plus a platform fee. Payments are held in escrow by a licensed third-party payment provider and released to the Helper upon successful job completion, minus a 10% platform commission.</p><h4 class="font-bold text-white mt-4">4. User Conduct</h4><p>You agree to act professionally and respectfully. Fraud, harassment, or any illegal activity is strictly prohibited and will result in account termination and potential blacklisting.</p></div></div></div>
+    <div id="privacyModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Privacy Policy</h3><button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Your privacy is important to us. This policy explains what data we collect and how we use it.</p><h4 class="font-bold text-white mt-4">1. Information We Collect</h4><p>We collect information you provide during registration, including your name, identity documents, proof of residence, and contact details. We also collect data on jobs posted and completed.</p><h4 class="font-bold text-white mt-4">2. How We Use Information</h4><p>Your information is used to verify your identity (KYC), connect you with other users, process payments, and ensure the security of our platform. We may use anonymized data for analytics.</p><h4 class="font-bold text-white mt-4">3. Data Sharing</h4><p>We share necessary information between Helpers and Requesters to facilitate a job. We share data with our payment provider to process transactions. We will not sell your personal data to third parties.</p></div></div></div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script>
+        // --- Mobile Menu ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        // --- Modal Logic ---
+        function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); document.body.classList.add('overflow-hidden'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
+
+        // --- Narrator (Text-to-Speech) Logic ---
+        const playButton = document.getElementById('play-mission-button');
+        const missionTextElement = document.getElementById('mission-text');
+        
+        playButton.addEventListener('click', () => {
+            const textToSpeak = missionTextElement.textContent.trim();
+            
+            // Cancel any previous speech to prevent overlap
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = 'en-US'; // You can change the language/accent here
+            
+            speechSynthesis.speak(utterance);
         });
     </script>
-
 </body>
 </html>
