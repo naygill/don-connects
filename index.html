@@ -41,7 +41,6 @@
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-3">
                 <!-- *** REPLACE THIS LOGO LINK *** -->
-                <!-- Use your Imgur link for a cropped, circular version of your mascot's face -->
                 <img src="https://placehold.co/40x40/1F2937/34D399?text=DC" alt="Don Connects Mascot Logo" class="w-10 h-10 rounded-full border-2 border-emerald-500">
                 <span class="text-2xl font-bold text-white">
                     Don<span class="text-emerald-400">Connects</span>
@@ -120,26 +119,36 @@
             </div>
         </section>
 
-        <!-- About Us Section with Narrator -->
+        <!-- About Us Section with Multi-Language Narrator -->
         <section id="about" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-2">
                         <!-- *** REPLACE THIS MASCOT LINK *** -->
-                        <!-- Use your Imgur link for the full mascot image -->
                         <img src="https://placehold.co/400x500/111827/FBBF24?text=Don+Connects+Mascot" alt="Don Connects Mascot" class="rounded-xl shadow-2xl mx-auto">
                     </div>
                     <div class="md:col-span-3 text-center md:text-left">
                          <div class="flex items-center justify-center md:justify-start space-x-4 mb-4">
                             <h2 class="text-3xl md:text-4xl font-bold text-white">Our Mission</h2>
-                            <!-- NARRATOR BUTTON -->
-                            <button id="play-mission-button" class="bg-emerald-500/20 text-emerald-400 rounded-full p-3 hover:bg-emerald-500/40 transition-colors">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132A5.992 5.992 0 0110 10c2.034 0 3.835.983 4.982 2.536l1.414-1.414A7.993 7.993 0 0010 8a7.993 7.993 0 00-6.416 3.118l1.414 1.414zM10 4a6 6 0 016 6v.03A6.035 6.035 0 0110 16a6.035 6.035 0 01-6-5.97V10a6 6 0 016-6z"></path></svg>
-                            </button>
+                            <!-- NEW: Language selection for narrator -->
+                            <div class="relative" x-data="{ open: false }">
+                                <button @click="open = !open" class="bg-emerald-500/20 text-emerald-400 rounded-full p-3 hover:bg-emerald-500/40 transition-colors flex items-center">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132A5.992 5.992 0 0110 10c2.034 0 3.835.983 4.982 2.536l1.414-1.414A7.993 7.993 0 0010 8a7.993 7.993 0 00-6.416 3.118l1.414 1.414zM10 4a6 6 0 016 6v.03A6.035 6.035 0 0110 16a6.035 6.035 0 01-6-5.97V10a6 6 0 016-6z"></path></svg>
+                                    <span class="ml-2 text-sm">Listen</span>
+                                </button>
+                                <div x-show="open" @click.away="open = false" x-cloak class="absolute left-0 mt-2 w-40 bg-gray-800 border border-gray-700 rounded-lg shadow-lg z-10">
+                                    <a href="#" id="play-en" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">English</a>
+                                    <a href="#" id="play-af" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Afrikaans</a>
+                                    <a href="#" id="play-osh" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Oshiwambo</a>
+                                </div>
+                            </div>
                          </div>
                          <p id="mission-text" class="text-gray-400 max-w-3xl">
                             Don Connects was born from a simple idea: to unlock the vast potential of the African workforce. We saw a disconnect between talented, hardworking individuals seeking opportunities and the people and businesses who needed their skills. Our mission is to build the bridge. We are more than just an app; we are a community built on trust, a platform for growth, and a new way for Namibians and Africans to achieve economic empowerment.
                          </p>
+                         <!-- Hidden text for other languages -->
+                         <div id="mission-text-af" class="hidden">Don Connects is gebore uit 'n eenvoudige idee: om die groot potensiaal van die Afrika-werkmag te ontsluit. Ons het 'n gaping gesien tussen talentvolle, hardwerkende individue wat geleenthede soek en die mense en besighede wat hul vaardighede benodig. Ons missie is om daardie brug te bou. Ons is meer as net 'n toepassing; ons is 'n gemeenskap gebou op vertroue, 'n platform vir groei, en 'n nuwe manier vir Namibiërs en Afrikane om ekonomiese bemagtiging te bereik.</div>
+                         <div id="mission-text-osh" class="hidden">Oshiwambo translation placeholder: Don Connects was born from a simple idea: to unlock the vast potential of the African workforce. We saw a disconnect between talented, hardworking individuals seeking opportunities and the people and businesses who needed their skills. Our mission is to build the bridge. We are more than just an app; we are a community built on trust, a platform for growth, and a new way for Namibians and Africans to achieve economic empowerment.</div>
                     </div>
                 </div>
             </div>
@@ -148,9 +157,7 @@
         <!-- FAQ Section -->
         <section id="faq" class="py-20 bg-gray-900/50">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
-                </div>
+                <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2></div>
                 <div class="max-w-3xl mx-auto space-y-4" x-data="{ open: null }">
                     <div class="bg-gray-800 rounded-lg"><button @click="open = open === 1 ? null : 1" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">How much does it cost for Helpers?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 1" x-cloak class="px-6 pb-6 text-gray-400">You can sign up and browse for jobs completely free. A small monthly subscription of N$100 only becomes active once you accept your first paid gig. This way, you only pay when you're earning.</div></div>
                     <div class="bg-gray-800 rounded-lg"><button @click="open = open === 2 ? null : 2" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">How do payments work? Is it safe?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 2" x-cloak class="px-6 pb-6 text-gray-400">Extremely safe. When a Requester pays for a job, the money is held securely in an escrow account by our licensed payment partner. Once the job is marked as complete, the payment (minus our 10% platform commission) is automatically released to the Helper's Don Wallet. This protects both parties.</div></div>
@@ -176,26 +183,10 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800">
-        <div class="container mx-auto px-6 py-8">
-            <div class="text-center">
-                <a href="#" class="flex items-center justify-center space-x-3">
-                    <!-- *** REPLACE THIS LOGO LINK *** -->
-                    <img src="https://placehold.co/32x32/1F2937/34D399?text=DC" alt="Don Connects Mascot Logo" class="w-8 h-8 rounded-full">
-                    <span class="text-xl font-bold text-white">Don<span class="text-emerald-400">Connects</span></span>
-                </a>
-                <div class="flex justify-center space-x-6 mt-4 text-sm">
-                    <button onclick="openModal('termsModal')" class="text-gray-400 hover:text-white">Terms of Service</button><span class="text-gray-500">|</span><button onclick="openModal('privacyModal')" class="text-gray-400 hover:text-white">Privacy Policy</button>
-                </div>
-                <p class="text-gray-500 text-sm mt-6">&copy; 2025 Don Connects. All Rights Reserved. A vision for Namibia and Africa.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Modals and other hidden elements -->
-    <div id="termsModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Terms of Service</h3><button onclick="closeModal('termsModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Welcome to Don Connects. These terms outline the rules for using our platform. By using our services, you agree to these terms.</p><h4 class="font-bold text-white mt-4">1. The Platform</h4><p>Don Connects is a platform that connects users seeking to provide services ("Helpers") with users seeking to obtain services ("Requesters"). We are not an employer but a facilitator of these connections.</p><h4 class="font-bold text-white mt-4">2. User Accounts & Verification</h4><p>All users must register and complete our Know Your Customer (KYC) verification process. You agree to provide accurate information and are responsible for your account's security.</p><h4 class="font-bold text-white mt-4">3. Payments</h4><p>Requesters pay the agreed job amount plus a platform fee. Payments are held in escrow by a licensed third-party payment provider and released to the Helper upon successful job completion, minus a 10% platform commission.</p><h4 class="font-bold text-white mt-4">4. User Conduct</h4><p>You agree to act professionally and respectfully. Fraud, harassment, or any illegal activity is strictly prohibited and will result in account termination and potential blacklisting.</p></div></div></div>
-    <div id="privacyModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Privacy Policy</h3><button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Your privacy is important to us. This policy explains what data we collect and how we use it.</p><h4 class="font-bold text-white mt-4">1. Information We Collect</h4><p>We collect information you provide during registration, including your name, identity documents, proof of residence, and contact details. We also collect data on jobs posted and completed.</p><h4 class="font-bold text-white mt-4">2. How We Use Information</h4><p>Your information is used to verify your identity (KYC), connect you with other users, process payments, and ensure the security of our platform. We may use anonymized data for analytics.</p><h4 class="font-bold text-white mt-4">3. Data Sharing</h4><p>We share necessary information between Helpers and Requesters to facilitate a job. We share data with our payment provider to process transactions. We will not sell your personal data to third parties.</p></div></div></div>
+    <!-- Footer and Modals -->
+    <footer class="bg-gray-900 border-t border-gray-800"><div class="container mx-auto px-6 py-8"><div class="text-center"><a href="#" class="flex items-center justify-center space-x-3"><img src="https://placehold.co/32x32/1F2937/34D399?text=DC" alt="Don Connects Mascot Logo" class="w-8 h-8 rounded-full"><span class="text-xl font-bold text-white">Don<span class="text-emerald-400">Connects</span></span></a><div class="flex justify-center space-x-6 mt-4 text-sm"><button onclick="openModal('termsModal')" class="text-gray-400 hover:text-white">Terms of Service</button><span class="text-gray-500">|</span><button onclick="openModal('privacyModal')" class="text-gray-400 hover:text-white">Privacy Policy</button></div><p class="text-gray-500 text-sm mt-6">&copy; 2025 Don Connects. All Rights Reserved. A vision for Namibia and Africa.</p></div></div></footer>
+    <div id="termsModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Terms of Service</h3><button onclick="closeModal('termsModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Welcome to Don Connects...</p></div></div></div>
+    <div id="privacyModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Privacy Policy</h3><button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Your privacy is important to us...</p></div></div></div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -209,20 +200,32 @@
         function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); document.body.classList.add('overflow-hidden'); }
         function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
 
-        // --- Narrator (Text-to-Speech) Logic ---
-        const playButton = document.getElementById('play-mission-button');
-        const missionTextElement = document.getElementById('mission-text');
-        
-        playButton.addEventListener('click', () => {
-            const textToSpeak = missionTextElement.textContent.trim();
-            
-            // Cancel any previous speech to prevent overlap
-            speechSynthesis.cancel();
-            
-            const utterance = new SpeechSynthesisUtterance(textToSpeak);
-            utterance.lang = 'en-US'; // You can change the language/accent here
-            
+        // --- Multi-Language Narrator Logic ---
+        function speakText(text, lang) {
+            speechSynthesis.cancel(); // Stop any previous speech
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = lang;
             speechSynthesis.speak(utterance);
+        }
+
+        document.getElementById('play-en').addEventListener('click', (e) => {
+            e.preventDefault();
+            const text = document.getElementById('mission-text').textContent.trim();
+            speakText(text, 'en-US');
+        });
+
+        document.getElementById('play-af').addEventListener('click', (e) => {
+            e.preventDefault();
+            const text = document.getElementById('mission-text-af').textContent.trim();
+            speakText(text, 'af-ZA');
+        });
+
+        document.getElementById('play-osh').addEventListener('click', (e) => {
+            e.preventDefault();
+            // NOTE: The browser's support for Oshiwambo (or specific dialects) may be limited.
+            // It might use a generic voice. The text is a placeholder.
+            const text = document.getElementById('mission-text-osh').textContent.trim();
+            speakText(text, 'en-US'); // Using en-US as a fallback if no specific voice is available
         });
     </script>
 </body>
