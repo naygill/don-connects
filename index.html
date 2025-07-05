@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Alpine.js for interactive elements -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    
     <!-- Custom Styles -->
     <style>
         body {
@@ -32,6 +35,7 @@
         .modal-content {
             transition: transform 0.25s ease;
         }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300 antialiased">
@@ -48,8 +52,7 @@
             </a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#how-it-works" class="hover:text-emerald-400 transition duration-300">How It Works</a>
-                <a href="#for-helpers" class="hover:text-emerald-400 transition duration-300">For Helpers</a>
-                <a href="#for-requesters" class="hover:text-emerald-400 transition duration-300">For Requesters</a>
+                <a href="#about" class="hover:text-emerald-400 transition duration-300">Our Story</a>
                 <a href="#faq" class="hover:text-emerald-400 transition duration-300">FAQ</a>
             </nav>
             <a href="#notify" class="hidden md:block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105">
@@ -61,8 +64,7 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#how-it-works" class="block py-2 text-center hover:bg-gray-800 rounded">How It Works</a>
-            <a href="#for-helpers" class="block py-2 text-center hover:bg-gray-800 rounded">For Helpers</a>
-            <a href="#for-requesters" class="block py-2 text-center hover:bg-gray-800 rounded">For Requesters</a>
+            <a href="#about" class="block py-2 text-center hover:bg-gray-800 rounded">Our Story</a>
             <a href="#faq" class="block py-2 text-center hover:bg-gray-800 rounded">FAQ</a>
             <a href="#notify" class="block mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-5 rounded-lg text-center">Get Notified</a>
         </div>
@@ -76,13 +78,13 @@
                     <span class="gradient-text">Get work. Get paid. Get growing.</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
-                    Don Connects is the human-powered opportunity platform for Namibia and Africa, bridging the gap between skilled individuals and those who need their help.
+                    A Namibian platform built to connect you with the help you need and the work you deserve. You are not alone anymore.
                 </p>
                 <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#for-helpers" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105">
+                    <a href="#notify" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105">
                         I Want to Work
                     </a>
-                    <a href="#for-requesters" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-gray-600/50 transition duration-300 transform hover:scale-105">
+                    <a href="#notify" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-gray-600/50 transition duration-300 transform hover:scale-105">
                         I Need Help
                     </a>
                 </div>
@@ -119,7 +121,7 @@
             </div>
         </section>
 
-        <!-- About Us Section with Multi-Language Narrator -->
+        <!-- Our Story / Mission Section -->
         <section id="about" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
@@ -129,8 +131,7 @@
                     </div>
                     <div class="md:col-span-3 text-center md:text-left">
                          <div class="flex items-center justify-center md:justify-start space-x-4 mb-4">
-                            <h2 class="text-3xl md:text-4xl font-bold text-white">Our Mission</h2>
-                            <!-- NEW: Language selection for narrator -->
+                            <h2 class="text-3xl md:text-4xl font-bold text-white">Our Story</h2>
                             <div class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" class="bg-emerald-500/20 text-emerald-400 rounded-full p-3 hover:bg-emerald-500/40 transition-colors flex items-center">
                                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132A5.992 5.992 0 0110 10c2.034 0 3.835.983 4.982 2.536l1.414-1.414A7.993 7.993 0 0010 8a7.993 7.993 0 00-6.416 3.118l1.414 1.414zM10 4a6 6 0 016 6v.03A6.035 6.035 0 0110 16a6.035 6.035 0 01-6-5.97V10a6 6 0 016-6z"></path></svg>
@@ -139,16 +140,20 @@
                                 <div x-show="open" @click.away="open = false" x-cloak class="absolute left-0 mt-2 w-40 bg-gray-800 border border-gray-700 rounded-lg shadow-lg z-10">
                                     <a href="#" id="play-en" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">English</a>
                                     <a href="#" id="play-af" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Afrikaans</a>
-                                    <a href="#" id="play-osh" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Oshiwambo</a>
                                 </div>
                             </div>
                          </div>
-                         <p id="mission-text" class="text-gray-400 max-w-3xl">
-                            Don Connects was born from a simple idea: to unlock the vast potential of the African workforce. We saw a disconnect between talented, hardworking individuals seeking opportunities and the people and businesses who needed their skills. Our mission is to build the bridge. We are more than just an app; we are a community built on trust, a platform for growth, and a new way for Namibians and Africans to achieve economic empowerment.
-                         </p>
-                         <!-- Hidden text for other languages -->
-                         <div id="mission-text-af" class="hidden">Don Connects is gebore uit 'n eenvoudige idee: om die groot potensiaal van die Afrika-werkmag te ontsluit. Ons het 'n gaping gesien tussen talentvolle, hardwerkende individue wat geleenthede soek en die mense en besighede wat hul vaardighede benodig. Ons missie is om daardie brug te bou. Ons is meer as net 'n toepassing; ons is 'n gemeenskap gebou op vertroue, 'n platform vir groei, en 'n nuwe manier vir Namibiërs en Afrikane om ekonomiese bemagtiging te bereik.</div>
-                         <div id="mission-text-osh" class="hidden">Oshiwambo translation placeholder: Don Connects was born from a simple idea: to unlock the vast potential of the African workforce. We saw a disconnect between talented, hardworking individuals seeking opportunities and the people and businesses who needed their skills. Our mission is to build the bridge. We are more than just an app; we are a community built on trust, a platform for growth, and a new way for Namibians and Africans to achieve economic empowerment.</div>
+                         <!-- NEW MISSION STATEMENT TEXT -->
+                         <div id="mission-text-en" class="text-gray-400 space-y-4">
+                            <p>Don Connects wasn't born in a boardroom. It was born from struggle.</p>
+                            <p>I know what it’s like to have a dream—like my poultry business—and watch it fail because you have no capital and no help. I know what it’s like to do everything alone, surrounded by people who think a steady job is the only dream worth having.</p>
+                            <p>I know the feeling of working hard for someone else's dream, only to be fired and replaced the next day, with no one caring about you or your family.</p>
+                            <p>That experience taught me a powerful lesson: many of us are trapped. We're trapped by debt, by unemployment, by the feeling that we have to build our dreams all by ourselves.</p>
+                            <p class="text-white font-bold text-lg">Don Connects is here to break that pattern.</p>
+                            <p>This is not just an app. This is a community built on a simple promise: <span class="text-emerald-400 font-semibold">you are not alone anymore.</span></p>
+                         </div>
+                         <!-- Hidden Afrikaans translation -->
+                         <div id="mission-text-af" class="hidden">Don Connects is nie in 'n raadsaal gebore nie. Dit is uit swaarkry gebore. Ek weet hoe dit voel om 'n droom te hê—soos my pluimveebesigheid—en te sien hoe dit misluk omdat jy geen kapitaal en geen hulp het nie. Ek weet hoe dit voel om alles alleen te doen, omring deur mense wat dink 'n vaste werk is die enigste droom wat die moeite werd is. Ek ken die gevoel om hard te werk vir iemand anders se droom, net om die volgende dag afgedank en vervang te word, met niemand wat vir jou of jou gesin omgee nie. Daardie ervaring het my 'n kragtige les geleer: baie van ons is vasgevang. Ons is vasgevang deur skuld, deur werkloosheid, deur die gevoel dat ons ons drome heeltemal alleen moet bou. Don Connects is hier om daardie patroon te breek. Hierdie is nie net 'n toepassing nie. Hierdie is 'n gemeenskap gebou op 'n eenvoudige belofte: jy is nie meer alleen nie.</div>
                     </div>
                 </div>
             </div>
@@ -189,7 +194,6 @@
     <div id="privacyModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden"><div class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-bold text-white">Privacy Policy</h3><button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white">&times;</button></div><div class="text-gray-400 space-y-4 text-sm"><p class="font-bold text-yellow-400">Disclaimer: This is a template and not legal advice. You must consult with a legal professional to create a policy that fits your specific business needs.</p><p>Your privacy is important to us...</p></div></div></div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script>
         // --- Mobile Menu ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -210,7 +214,7 @@
 
         document.getElementById('play-en').addEventListener('click', (e) => {
             e.preventDefault();
-            const text = document.getElementById('mission-text').textContent.trim();
+            const text = document.getElementById('mission-text-en').textContent.trim();
             speakText(text, 'en-US');
         });
 
@@ -218,14 +222,6 @@
             e.preventDefault();
             const text = document.getElementById('mission-text-af').textContent.trim();
             speakText(text, 'af-ZA');
-        });
-
-        document.getElementById('play-osh').addEventListener('click', (e) => {
-            e.preventDefault();
-            // NOTE: The browser's support for Oshiwambo (or specific dialects) may be limited.
-            // It might use a generic voice. The text is a placeholder.
-            const text = document.getElementById('mission-text-osh').textContent.trim();
-            speakText(text, 'en-US'); // Using en-US as a fallback if no specific voice is available
         });
     </script>
 </body>
