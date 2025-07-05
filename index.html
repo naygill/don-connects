@@ -44,7 +44,6 @@
     <header class="fixed w-full bg-gray-900 bg-opacity-80 backdrop-blur-lg z-50 border-b border-gray-800">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-3">
-                <!-- LOGO IMAGE ADDED -->
                 <img src="https://i.imgur.com/eHpsAwV.jpeg" alt="Don Connects Mascot Logo" class="w-10 h-10 rounded-full border-2 border-emerald-500 object-cover">
                 <span class="text-2xl font-bold text-white">
                     Don<span class="text-emerald-400">Connects</span>
@@ -56,7 +55,7 @@
                 <a href="#faq" class="hover:text-emerald-400 transition duration-300">FAQ</a>
             </nav>
             <a href="#notify" class="hidden md:block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105">
-                Get Notified
+                Join Waitlist
             </a>
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -66,7 +65,7 @@
             <a href="#how-it-works" class="block py-2 text-center hover:bg-gray-800 rounded">How It Works</a>
             <a href="#about" class="block py-2 text-center hover:bg-gray-800 rounded">Our Story</a>
             <a href="#faq" class="block py-2 text-center hover:bg-gray-800 rounded">FAQ</a>
-            <a href="#notify" class="block mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-5 rounded-lg text-center">Get Notified</a>
+            <a href="#notify" class="block mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-5 rounded-lg text-center">Join Waitlist</a>
         </div>
     </header>
 
@@ -126,7 +125,6 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-2">
-                        <!-- MASCOT IMAGE ADDED -->
                         <img src="https://i.imgur.com/CTi96da.jpeg" alt="Don Connects Mascot" class="rounded-xl shadow-2xl mx-auto">
                     </div>
                     <div class="md:col-span-3 text-center md:text-left">
@@ -173,15 +171,26 @@
         <!-- Pre-launch Notification Section -->
         <section id="notify" class="py-20">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-white mb-4">Be the First to Know!</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto mb-8">Our app is coming soon. Sign up to get exclusive early access, launch updates, and be part of the Don Connects founding community.</p>
-                <form class="max-w-xl mx-auto">
+                <!-- UPDATED TEXT FOR CLARITY -->
+                <h2 class="text-3xl font-bold text-white mb-4">The App is Coming Soon! Join the Official Waitlist.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8">We are hard at work building the Don Connects app. By signing up below, you are joining the official pre-launch waitlist. You'll get exclusive progress updates and be the very first to know when the app is ready for you to download.</p>
+                
+                <!-- WORKING FORM WITH YOUR LINK -->
+                <form action="https://formspree.io/f/xwpbjllb" method="POST" class="max-w-xl mx-auto">
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="email" placeholder="Enter your email address" class="w-full px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none" required>
-                        <select class="px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none"><option>I am a...</option><option value="helper">Helper (I want to work)</option><option value="requester">Requester (I need help)</option><option value="both">Both</option></select>
-                        <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105 glow-effect-emerald flex-shrink-0">Notify Me</button>
+                        <input type="email" name="email" placeholder="Enter your email address" class="w-full px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none" required>
+                        <select name="role" class="px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            <option>I am a...</option>
+                            <option value="Helper">Helper (I want to work)</option>
+                            <option value="Requester">Requester (I need help)</option>
+                            <option value="Both">Both</option>
+                        </select>
+                        <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-emerald-500/40 transition duration-300 transform hover:scale-105 glow-effect-emerald flex-shrink-0">
+                            Join Waitlist
+                        </button>
                     </div>
                 </form>
+
             </div>
         </section>
     </main>
