@@ -130,19 +130,19 @@
                     <div class="md:col-span-3 text-center md:text-left">
                          <div class="flex items-center justify-center md:justify-start space-x-4 mb-4">
                             <h2 class="text-3xl md:text-4xl font-bold text-white">Our Story</h2>
-                            <!-- SIMPLIFIED NARRATOR BUTTON -->
-                            <button id="play-mission-button" class="bg-emerald-500/20 text-emerald-400 rounded-full p-3 hover:bg-emerald-500/40 transition-colors flex items-center">
+                            <button id="play-story-button" class="bg-emerald-500/20 text-emerald-400 rounded-full p-3 hover:bg-emerald-500/40 transition-colors flex items-center">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4.018 15.132A5.992 5.992 0 0110 10c2.034 0 3.835.983 4.982 2.536l1.414-1.414A7.993 7.993 0 0010 8a7.993 7.993 0 00-6.416 3.118l1.414 1.414zM10 4a6 6 0 016 6v.03A6.035 6.035 0 0110 16a6.035 6.035 0 01-6-5.97V10a6 6 0 016-6z"></path></svg>
-                                <span class="ml-2 text-sm">Listen</span>
+                                <span class="ml-2 text-sm">Listen to Our Story</span>
                             </button>
                          </div>
-                         <div id="mission-text-en" class="text-gray-400 space-y-4">
-                            <p>Don Connects wasn't born in a boardroom. It was born from struggle.</p>
-                            <p>I know what it’s like to have a dream—like my poultry business—and watch it fail because you have no capital and no help. I know what it’s like to do everything alone, surrounded by people who think a steady job is the only dream worth having.</p>
-                            <p>I know the feeling of working hard for someone else's dream, only to be fired and replaced the next day, with no one caring about you or your family.</p>
-                            <p>That experience taught me a powerful lesson: many of us are trapped. We're trapped by debt, by unemployment, by the feeling that we have to build our dreams all by ourselves.</p>
-                            <p class="text-white font-bold text-lg">Don Connects is here to break that pattern.</p>
-                            <p>This is not just an app. This is a community built on a simple promise: <span class="text-emerald-400 font-semibold">you are not alone anymore.</span></p>
+                         <!-- CORRECTED FOUNDER'S STORY -->
+                         <div id="founder-story" class="text-gray-400 space-y-4">
+                            <p>Don Connects wasn't born in a boardroom. It was born from the painful lessons of failure and the powerful hope for a better future.</p>
+                            <p>I know the feeling of working hard for someone else's dream, only to be fired and replaced the next day, with the system moving on without a second thought for me or my family. After that, everyone told me to just find another "good job." But I knew I couldn't go back to that trap—the routine, the feeling that my own potential was being wasted.</p>
+                            <p>Instead, I poured everything I had into a poultry business. It was my dream. But I learned a hard lesson that many entrepreneurs in Namibia face: a good idea isn't enough when you're on your own. I ran out of capital. I had no help with sales, no one to assist with the daily grind of feeding and cleaning. I was the only one who believed in the vision, and because I was alone, the dream failed.</p>
+                            <p>Those experiences taught me a fundamental truth: many of us are trapped. We are trapped by a lack of capital, by unemployment, by the belief that we have to build our dreams all by ourselves. We are programmed by a system that tells us the biggest dream we can have is to get a "good job" working for someone else.</p>
+                            <p class="text-white font-bold text-lg">Don Connects is my answer to that broken system.</p>
+                            <p>This is not just another app. This is my promise to every entrepreneur who has felt alone, to every skilled person who has struggled to find work, and to every parent who wants a better future for their child. It is a community built on one simple, powerful idea: <span class="text-emerald-400 font-semibold">you are not alone anymore.</span></p>
                          </div>
                     </div>
                 </div>
@@ -203,13 +203,17 @@
         function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); document.body.classList.add('overflow-hidden'); }
         function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
 
-        // --- Simplified Narrator Logic ---
-        document.getElementById('play-mission-button').addEventListener('click', (e) => {
+        // --- Narrator Logic ---
+        document.getElementById('play-story-button').addEventListener('click', (e) => {
             e.preventDefault();
-            const text = document.getElementById('mission-text-en').textContent.trim();
-            
+            const storyContainer = document.getElementById('founder-story');
+            // Get text from all child paragraphs and join them
+            const textToSpeak = Array.from(storyContainer.children)
+                                    .map(p => p.textContent)
+                                    .join(' ');
+
             speechSynthesis.cancel(); // Stop any previous speech
-            const utterance = new SpeechSynthesisUtterance(text);
+            const utterance = new SpeechSynthesisUtterance(textToSpeak.trim());
             utterance.lang = 'en-US';
             speechSynthesis.speak(utterance);
         });
