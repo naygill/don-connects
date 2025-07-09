@@ -135,7 +135,6 @@
                                 <span class="ml-2 text-sm">Listen to Our Story</span>
                             </button>
                          </div>
-                         <!-- CORRECTED FOUNDER'S STORY -->
                          <div id="founder-story" class="text-gray-400 space-y-4">
                             <p>Don Connects wasn't born in a boardroom. It was born from the painful lessons of failure and the powerful hope for a better future.</p>
                             <p>I know the feeling of working hard for someone else's dream, only to be fired and replaced the next day, with the system moving on without a second thought for me or my family. After that, everyone told me to just find another "good job." But I knew I couldn't go back to that trap—the routine, the feeling that my own potential was being wasted.</p>
@@ -154,6 +153,16 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2></div>
                 <div class="max-w-3xl mx-auto space-y-4" x-data="{ open: null }">
+                    <!-- NEW FAQ ITEM ADDED -->
+                    <div class="bg-gray-800 rounded-lg">
+                        <button @click="open = open === 0 ? null : 0" class="w-full text-left p-6 flex justify-between items-center">
+                            <span class="font-semibold text-white">What is Don Connects?</span>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 0 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div x-show="open === 0" x-cloak class="px-6 pb-6 text-gray-400">
+                            Don Connects is a future mobile app that will act as a trusted marketplace for all Namibians. It is a platform where you can find verified, reliable local people for any task you need done (like plumbing, cleaning, or graphic design). It is also a place where anyone with a skill can offer their services, find work, build a reputation, and get paid safely through our secure payment system. Our goal is to connect the community and create economic opportunities for everyone.
+                        </div>
+                    </div>
                     <div class="bg-gray-800 rounded-lg"><button @click="open = open === 1 ? null : 1" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">How much does it cost for Helpers?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 1" x-cloak class="px-6 pb-6 text-gray-400">You can sign up and browse for jobs completely free. A small monthly subscription of N$100 only becomes active once you accept your first paid gig. This way, you only pay when you're earning.</div></div>
                     <div class="bg-gray-800 rounded-lg"><button @click="open = open === 2 ? null : 2" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">How do payments work? Is it safe?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 2" x-cloak class="px-6 pb-6 text-gray-400">Extremely safe. When a Requester pays for a job, the money is held securely in an escrow account by our licensed payment partner. Once the job is marked as complete, the payment (minus our 10% platform commission) is automatically released to the Helper's Don Wallet. This protects both parties.</div></div>
                     <div class="bg-gray-800 rounded-lg"><button @click="open = open === 3 ? null : 3" class="w-full text-left p-6 flex justify-between items-center"><span class="font-semibold text-white">What if I don't have formal certificates for my skills?</span><svg class="w-5 h-5 text-gray-400 transition-transform" :class="{ 'rotate-180': open === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div x-show="open === 3" x-cloak class="px-6 pb-6 text-gray-400">No problem! While we verify formal certificates for trades like electricians or mechanics, we also have a system for you to detail your practical experience and skills for jobs like cleaning, gardening, driving, and more. We believe real-world experience is just as valuable.</div></div>
@@ -207,12 +216,8 @@
         document.getElementById('play-story-button').addEventListener('click', (e) => {
             e.preventDefault();
             const storyContainer = document.getElementById('founder-story');
-            // Get text from all child paragraphs and join them
-            const textToSpeak = Array.from(storyContainer.children)
-                                    .map(p => p.textContent)
-                                    .join(' ');
-
-            speechSynthesis.cancel(); // Stop any previous speech
+            const textToSpeak = Array.from(storyContainer.children).map(p => p.textContent).join(' ');
+            speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(textToSpeak.trim());
             utterance.lang = 'en-US';
             speechSynthesis.speak(utterance);
@@ -220,3 +225,4 @@
     </script>
 </body>
 </html>
+
